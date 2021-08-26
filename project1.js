@@ -44,7 +44,10 @@ function showNotes(){
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
                         <p class="card-text">${element.text}</p>
-                        <button id="${index}" onClick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        <button id="${index}" onClick="UpdateNote(this.id)" class="btn btn-primary">Update Note</button>
+                        <br>
+                        <br>
+                        <button id="${index}" onClick="deleteNote(this.id)" class="btn btn-danger">Delete Note</button>
                     </div>
                 </div> `;
     });
@@ -71,6 +74,24 @@ function deleteNote(index){
     notesObj.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(notesObj)); //localStorage update automatically after delete a note
     showNotes();
+}
+
+//function to Update note
+function UpdateNote(index){
+    let notes=localStorage.getItem("notes");
+    if(notes==null){
+        notesObj=[];
+    }
+    else
+    {
+        notesObj=JSON.parse(notes);
+    }
+    notesObj.find((element, index)=>{
+        addTitle.value=element.title,
+        addTxt.value=element.text
+    })
+    notesObj.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
 }
 
 //function to Searching notes
