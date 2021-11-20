@@ -44,10 +44,10 @@ function showNotes(){
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
                         <p class="card-text">${element.text}</p>
-                        <button id="${index}" onClick="UpdateNote(this.id)" class="btn btn-primary">Update Note</button>
-                        <br>
-                        <br>
-                        <button id="${index}" onClick="deleteNote(this.id)" class="btn btn-danger">Delete Note</button>
+                        <section>
+                        <button id="${index}" onClick="UpdateNote(this.id)" class="btn btn-primary" style="margin-right:50px">Update</button>
+                        <button id="${index}" onClick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
+                        </section>
                     </div>
                 </div> `;
     });
